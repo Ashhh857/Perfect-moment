@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ashhh857.github.io/Perfect-moment/sitemap.xml
