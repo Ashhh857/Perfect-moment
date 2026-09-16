@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Perfect Moments — Owner Dashboard</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+<header class="admin-header"><a class="brand" href="index.html"><span class="brand-mark"><span>PM</span></span><span class="brand-copy"><strong>Perfect Moments</strong><small>Owner Dashboard</small></span></a><a class="admin-site-link" href="index.html">View website ↗</a></header>
+<main class="admin-main">
+  <section id="login-panel" class="admin-card admin-login">
+    <p class="kicker">OWNER ACCESS</p><h1>Gallery Admin</h1>
+    <p class="admin-muted">This free version uses your GitHub repository to publish photos. Your access token is used only in this browser session and is not saved by this dashboard.</p>
+    <form id="login-form">
+      <label>GitHub username<input id="github-owner" type="text" autocomplete="username" value="ashhh857" required></label>
+      <label>Repository<input id="github-repo" type="text" autocomplete="off" value="Perfect-moment" required></label>
+      <label>Fine-grained GitHub token<input id="github-token" type="password" autocomplete="off" required placeholder="github_pat_…"></label>
+      <p class="field-help">Create a fine-grained token with access only to this repository and <strong>Contents: Read and write</strong>. Never share the token or put it in website files.</p>
+      <button class="button button-dark" type="submit">Open Dashboard</button>
+      <p id="login-error" class="admin-error" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section id="dashboard" hidden>
+    <div class="admin-dashboard-head"><div><p class="kicker">GALLERY MANAGEMENT</p><h1>Your Decoration Portfolio</h1><p class="admin-muted">Upload genuine project photos. Changes are committed to GitHub and normally appear on the public website after the Pages build refreshes.</p></div><button id="logout" class="button button-outline" type="button">Sign out</button></div>
+    <div class="admin-grid">
+      <section class="admin-card">
+        <h2>Add a photo</h2>
+        <form id="upload-form">
+          <label>Photo<input id="photo" type="file" accept="image/jpeg,image/png,image/webp,image/avif" required></label>
+          <small class="field-help">Maximum 2 MB per image. The dashboard automatically converts large images to WebP when possible.</small>
+          <label>Title<input id="photo-title" maxlength="80" required placeholder="e.g. Birthday Decoration — Lucknow"></label>
+          <label>Category<select id="photo-category"><option>Birthday</option><option>Wedding</option><option>Haldi & Mehndi</option><option>Anniversary</option><option>Party</option><option>Ceremony</option><option>Other Events</option></select></label>
+          <label>Alt text<input id="photo-alt" maxlength="140" placeholder="Describe the decoration naturally for accessibility"></label>
+          <label class="check-row"><input id="photo-published" type="checkbox" checked> Publish on the public website</label>
+          <button id="upload-button" class="button button-dark" type="submit">Upload & Publish</button>
+          <div id="upload-status" class="admin-status" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+      <section class="admin-card admin-tips"><h2>Portfolio tips</h2><ul><li>Upload only your own genuine project photos.</li><li>Choose well-lit images with the decoration clearly visible.</li><li>Avoid private customer information in the frame.</li><li>Use specific titles such as “Birthday Decoration — Gomti Nagar”.</li><li>Keep the best 20–40 photos visible rather than uploading everything.</li></ul><hr><p><strong>Important:</strong> This is a ₹0 hosting approach. GitHub is your storage, so keep the repository private if you want the original files hidden—but GitHub Pages must publish from a repository that GitHub Pages can serve under your account/plan.</p></section>
+    </div>
+    <section class="admin-card admin-list-card"><div class="admin-list-head"><h2>Uploaded photos</h2><span id="photo-count" class="admin-count">0</span></div><div id="photo-list" class="admin-photo-list"></div><p id="empty-state" class="admin-muted">No photos uploaded yet.</p></section>
+  </section>
+</main>
+<script type="module" src="admin.js"></script>
+</body></html>
